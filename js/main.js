@@ -18,10 +18,9 @@ function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-async function start()  {
+async function start_bubble()  {
     var elements = document.getElementsByClassName('rectangle');
     var i,j,t,p;
-    var delayInMilliseconds = 10000; //1 second
 
 
 
@@ -51,4 +50,39 @@ async function start()  {
         }
     }
     
+}
+
+async function start_insert(){
+    var elements = document.getElementsByClassName('rectangle');
+    var i,j,t,p;
+
+    for(i=1;i<elements.length;i++){
+        let currentElement = parseInt(window.getComputedStyle(elements[i]).height, 10);
+        let lastIndex = i - 1;
+
+        while (lastIndex >= 0 && parseInt(window.getComputedStyle(elements[lastIndex]).height, 10) > currentElement) {
+            
+            
+            t=parseInt(window.getComputedStyle(elements[lastIndex]).height, 10);
+            elements[lastIndex+1].style.backgroundColor = "red";
+            elements[lastIndex+1].style.height = t + 'px';
+            await delay(100);
+            elements[lastIndex+1].style.backgroundColor = "blueviolet";
+            lastIndex--;
+          }
+          elements[lastIndex+1].style.height=currentElement +"px";
+          await delay(100);
+        }
+
+
+    }
+
+function start(){
+    alert(document.querySelector('input[name="sorting_alg"]:checked').value);
+    if (document.querySelector('input[name="sorting_alg"]:checked').value == "bubble"){
+        start_bubble();
+    }
+    else if (document.querySelector('input[name="sorting_alg"]:checked').value == "insert"){
+        start_insert();
+    }
 }
