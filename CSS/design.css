@@ -1,7 +1,7 @@
+/*Stylesheet for the header and buttons*/
 header > ul{
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    
     overflow: hidden;
     font-size: large;
     
@@ -12,9 +12,21 @@ header{
     width:100%;
     height:10vh;
 }
+
+/*Stylesheet for the visualizer*/
 #output{
+    
     box-sizing: border-box;
     background-color: blue;
     width:100%;
     height:90vh;
+    position: absolute;
+}
+.rectangle{
+    box-sizing: border-box;
+    position: absolute;
+    width:10%;
+    height:70%;
+    background-color: blueviolet;
+    bottom:0;
 }
