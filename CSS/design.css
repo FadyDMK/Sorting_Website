@@ -1,26 +1,46 @@
+body, html{
+    width:100%;
+}
+* {
+    box-sizing: border-box;
+    font-family: Arial;
+    margin:0;
+    
+}
+
+
 /*Stylesheet for the header and buttons*/
 header > ul{
     list-style-type: none;
-    
     overflow: hidden;
     font-size: large;
-    
+    text-align: center;
 }
+
 header{
     box-sizing: border-box;
     background-color: rgb(137, 137, 224);
-    width:100%;
-    height:10vh;
+    width: 100%;
+    height: 10%;
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
 }
+.btn{
+    display: inline-block;
+
+}
+
 
 /*Stylesheet for the visualizer*/
 #output{
     
     box-sizing: border-box;
-    background-color: blue;
+    
     width:100%;
-    height:90vh;
+    height:90%;
     position: absolute;
+    bottom:0;
 }
 .rectangle{
     box-sizing: border-box;
