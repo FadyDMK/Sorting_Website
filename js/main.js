@@ -78,7 +78,7 @@ async function start_insert(){
     }
 
 function start(){
-    alert(document.querySelector('input[name="sorting_alg"]:checked').value);
+
     if (document.querySelector('input[name="sorting_alg"]:checked').value == "bubble"){
         start_bubble();
     }
