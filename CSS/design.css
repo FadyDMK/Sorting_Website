@@ -22,10 +22,12 @@ header{
     box-sizing: border-box;
     background-color: rgb(137, 137, 224);
     width: 100%;
-    height: 120px;
+    height: 14%;
     border: 1px solid;
     margin-left: auto;
     margin-right: auto;
+    position: fixed;
+    z-index: 1;
 }
 .container{
     text-align: center;
@@ -53,11 +55,13 @@ header{
     height:86%;
     position: absolute;
     bottom:0;
+    margin-top: 100px;
+    z-index: 0;
 }
 .rectangle{
     box-sizing: border-box;
     position: absolute;
-    width:10%;
+    width:60px;
     height:70%;
     background-color: blueviolet;
     bottom:0;

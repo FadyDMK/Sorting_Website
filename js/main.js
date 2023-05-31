@@ -1,35 +1,47 @@
 //this function randomizes the heights of the bars and organises them next to each other
-(function () {
+
+document.getElementById("output").style.height = (100-(document.getElementById("input").clientHeight - 10)) + "%";
+
+function orderRect() {
     var elements = document.getElementsByClassName('rectangle');
-    var i,r,marginLeft=-10.5;
+    var i,r,marginLeft=-10;
 
 
     for (i = 0; i < elements.length; i++) {
-    marginLeft += parseInt(window.getComputedStyle(elements[i]).marginLeft, 10) + 11;
-    elements[i].style.marginLeft = marginLeft + '%';
+    marginLeft += (window.innerWidth-(elements.length*10))/(elements.length+1);
+    elements[i].style.marginLeft = marginLeft + 'px';
     r=Math.floor(Math.random() * 500) + 1;
     elements[i].style.height = r + "px";
 
 
   }
-})();
+};
+orderRect()
 
 
-
-/*function EditNum(){
-    var num=document.getElementById('val');
-    var elements = document.getElementsByClassName('rectangle');
+function EditNum(){
+    const num = parseInt(document.getElementById('val').value);
+    const elements = document.getElementsByClassName('rectangle');
 
     if (elements.length<num){
-        for (i=0;i<num-elements.length;i++){
+        for (i=0;i<num-elements.length+1;i++){
             const el = document.createElement('div');
             el.classList.add('rectangle');
             const box = document.getElementById('output');
             box.appendChild(el);
         }
     }
+    else if(elements.length>num){
+        for (i=0;i<elements.length-num;i++){
+            var parent = document.getElementById('output');
+            var children = parent.getElementsByClassName('rectangle');
 
-}*/
+            // Remove the second child
+            children[i].remove();
+        }
+    }
+    orderRect()
+}
 
 
 function delay(ms) {
