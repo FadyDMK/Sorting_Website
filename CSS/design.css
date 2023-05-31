@@ -22,7 +22,7 @@ header{
     box-sizing: border-box;
     background-color: rgb(137, 137, 224);
     width: 100%;
-    height: 10%;
+    height: 120px;
     border: 1px solid;
     margin-left: auto;
     margin-right: auto;
@@ -30,49 +30,27 @@ header{
 .container{
     text-align: center;
 }
-/*.btn{
-    border: 1px solid #3498db;
-    background:none;
-    padding: 10px 20px;
-    font-size:20px;
-    font-family: "montserrat";
-    cursor:pointer;
-    margin:10px;
-    color: #ffff;
-    transition: 0.8s;
-    position:relative;
-    overflow: hidden;
-
+.btn{
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 25px;
+    background: #2079b0;
+    position: relative;
+    z-index: 0;
+    color: black;
+    cursor: pointer;
 }
-.btn:hover{
-    color: #3498db;
-}
-.btn::before{
-    content:"";
-    position: absolute;
-    left: 0;
-    width:100%;
-    height:0%;
-    background:#3498db;
-    z-index: -1;
-    transition: 0.8s;
-    top:0;
-    border-radius: 50% 50% 0 0;
-    height:180%
-
-}
-.btn:hover::before{
-    height: 0%;
-}*/
 
 
 /*Stylesheet for the visualizer*/
 #output{
     
     box-sizing: border-box;
-    
+    background: black;
     width:100%;
-    height:90%;
+    height:86%;
     position: absolute;
     bottom:0;
 }

@@ -14,6 +14,24 @@
   }
 })();
 
+
+
+/*function EditNum(){
+    var num=document.getElementById('val');
+    var elements = document.getElementsByClassName('rectangle');
+
+    if (elements.length<num){
+        for (i=0;i<num-elements.length;i++){
+            const el = document.createElement('div');
+            el.classList.add('rectangle');
+            const box = document.getElementById('output');
+            box.appendChild(el);
+        }
+    }
+
+}*/
+
+
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
