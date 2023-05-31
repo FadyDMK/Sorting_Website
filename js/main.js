@@ -1,6 +1,5 @@
 //this function randomizes the heights of the bars and organises them next to each other
 
-document.getElementById("output").style.height = (100-(document.getElementById("input").clientHeight - 10)) + "%";
 
 function orderRect() {
     var elements = document.getElementsByClassName('rectangle');
@@ -18,7 +17,7 @@ function orderRect() {
 };
 orderRect()
 
-
+//this function allows us to change the number of columns with the value from the range input
 function EditNum(){
     const num = parseInt(document.getElementById('val').value);
     const elements = document.getElementsByClassName('rectangle');
@@ -43,11 +42,14 @@ function EditNum(){
     orderRect()
 }
 
-
+//this function makes some output delay
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
+
+//the sorting functions are async to use the delay function and show the progress of sorting
+//this first function is bubble sort
 async function start_bubble()  {
     var elements = document.getElementsByClassName('rectangle');
     var i,j,t,p;
@@ -82,6 +84,8 @@ async function start_bubble()  {
     
 }
 
+
+//this second function is for sorting by insertion
 async function start_insert(){
     var elements = document.getElementsByClassName('rectangle');
     var i,j,t,p;
@@ -107,12 +111,21 @@ async function start_insert(){
 
     }
 
+
+
 function start(){
 
-    if (document.querySelector('input[name="sorting_alg"]:checked').value == "bubble"){
+    /*if (document.querySelector('input[name="sorting_alg"]:checked').value == "bubble"){
         start_bubble();
     }
     else if (document.querySelector('input[name="sorting_alg"]:checked').value == "insert"){
         start_insert();
+    }*/
+
+    switch(document.querySelector('input[name="sorting_alg"]:checked').value){
+        case "bubble":
+            start_bubble();
+        case "insert":
+            start_insert();
     }
 }
