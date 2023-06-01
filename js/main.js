@@ -91,7 +91,7 @@ async function start_bubble()  {
             
 
             
-            await delay(75/i); // Adjust the delay duration as needed (in milliseconds)
+            await delay(75/(i*i)); // Adjust the delay duration as needed (in milliseconds)
             elements[j].style.backgroundColor = "blueviolet";
             elements[j+1].style.backgroundColor  = "blueviolet";
 
@@ -116,17 +116,56 @@ async function start_insert(){
             t=parseInt(window.getComputedStyle(elements[lastIndex]).height, 10);
             elements[lastIndex+1].style.backgroundColor = "red";
             elements[lastIndex+1].style.height = t + 'px';
-            await delay(75/i);
+            await delay(75/(i*i));
             elements[lastIndex+1].style.backgroundColor = "blueviolet";
             lastIndex--;
           }
           elements[lastIndex+1].style.height=currentElement +"px";
-          await delay(75/i);
+          await delay(75/(i*i));
         }
 
 
     }
 
+
+async function start_quick(elements){
+    
+    var i;
+
+    let pivot = elements[0];
+    let leftArr = [];
+    let rightArr = [];
+
+    
+    for (i=1; i< elements.length;i++){
+        let currentElement = parseInt(window.getComputedStyle(elements[i]).height);
+        if (currentElement < parseInt(window.getComputedStyle(pivot).height)){
+            leftArr.push(i);
+        }
+        else{
+            rightArr.push(i);
+        }
+        
+    }
+
+    for (i=0; i<leftArr.length;i++){
+        t=parseInt(window.getComputedStyle(elements[leftArr[i]]).height, 10);
+        // elements[lastIndex+1].style.backgroundColor = "red";
+        elements[i].style.height = t + 'px';
+    }
+
+    t=parseInt(window.getComputedStyle(pivot).height, 10);
+    // elements[lastIndex+1].style.backgroundColor = "red";
+    elements[leftArr.length].style.height = t + 'px';
+
+    for (i=leftArr.length+1; i<(rightArr.length+leftArr.length+1);i++){
+        t=parseInt(window.getComputedStyle(elements[rightArr[i]]).height, 10);
+        // elements[lastIndex+1].style.backgroundColor = "red";
+        elements[i].style.height = t + 'px';
+    }
+    start_quick(elements.slice(0,leftArr.length-1));
+    start_quick(elements.slice(leftArr.length+1,rightArr.length+leftArr.length));
+}
 
 
 function start(){
@@ -135,5 +174,8 @@ function start(){
             start_bubble();
         case "insert":
             start_insert();
+        case "quick":
+            var elements = document.getElementsByClassName('rectangle');
+            start_quick(elements);
     }
 }
