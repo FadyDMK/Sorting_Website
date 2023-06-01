@@ -1,3 +1,11 @@
+//this function clears a div of its content
+function clearBox(elementID)
+{
+    document.getElementById(elementID).innerHTML = "";
+}
+
+
+
 //this function randomizes the heights of the bars and organises them next to each other
 
 
@@ -10,7 +18,6 @@ function orderRect() {
     // elements[i].style.marginLeft = marginLeft + 'px';
     r=Math.floor(Math.random() * 500) + 1;
     elements[i].style.height = r + "px";
-
     elements[i].style.left = i*(100/elements.length) + "%";
     elements[i].style.width = (100/elements.length) + "%";
     //elements[i].style.height = (i+1)*(100/elements.length) + "%";
@@ -19,14 +26,14 @@ function orderRect() {
 };
 orderRect()
 
-var range = document.querySelector('#num');
-range.addEventListener('input', EditNum())
+// range.addEventListener('input', EditNum())
 
 //this function allows us to change the number of columns with the value from the range input
 function EditNum(){
-    var num = range.value;
-
-    const elements = document.getElementsByClassName('rectangle');
+    var range = document.querySelector('#num');
+    var num = parseInt(range.value,10);
+    console.log(num);
+    var elements = document.getElementsByClassName('rectangle');
 
     if (elements.length<num){
         for (i=0;i<num-elements.length+1;i++){
@@ -37,12 +44,12 @@ function EditNum(){
         }
     }
     else if(elements.length>num){
-        for (i=0;i<elements.length-num;i++){
-            var parent = document.getElementById('output');
-            var children = parent.getElementsByClassName('rectangle');
-
-            // Remove the second child
-            children[i].remove();
+        clearBox("output");
+        for (i=0;i<num;i++){
+            const el = document.createElement('div');
+            el.classList.add('rectangle');
+            const box = document.getElementById('output');
+            box.appendChild(el);
         }
     }
     orderRect()
@@ -50,11 +57,6 @@ function EditNum(){
 
 
 window.addEventListener("resize",EditNum);
-
-
-
-
-
 
 //this function makes some output delay
 function delay(ms) {
