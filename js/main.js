@@ -150,17 +150,17 @@ async function start_quick(elements){
 
     for (i=0; i<leftArr.length;i++){
         t=parseInt(window.getComputedStyle(elements[leftArr[i]]).height, 10);
-        // elements[lastIndex+1].style.backgroundColor = "red";
+        elements[lastIndex+1].style.backgroundColor = "red";
         elements[i].style.height = t + 'px';
     }
 
     t=parseInt(window.getComputedStyle(pivot).height, 10);
-    // elements[lastIndex+1].style.backgroundColor = "red";
+    elements[lastIndex+1].style.backgroundColor = "green";
     elements[leftArr.length].style.height = t + 'px';
 
     for (i=leftArr.length+1; i<(rightArr.length+leftArr.length+1);i++){
         t=parseInt(window.getComputedStyle(elements[rightArr[i]]).height, 10);
-        // elements[lastIndex+1].style.backgroundColor = "red";
+         elements[lastIndex+1].style.backgroundColor = "blue";
         elements[i].style.height = t + 'px';
     }
     start_quick(elements.slice(0,leftArr.length-1));
