@@ -25,33 +25,32 @@
             </li>
             <li>
                 <label for="num">Number of columns</label>
-                <input type="range" id="num" name="num" min="2" max="15" value="5" oninput="this.nextElementSibling.value = this.value;EditNum();">
+                <input type="range" id="num" name="num" min="2" max="100" value="5" oninput="this.nextElementSibling.value = this.value;EditNum();">
                 <output id="val"> 5</output>
             </li>
 
             <li>
                 <br>
                 <div class="container">
-                <button class="btn" VALUE="Start" onclick="start()">Start</button>
+                <button class="btn btn1" VALUE="Start" onclick="start()">Start</button>
                 <button class="btn" VALUE="Reset" onclick="location.reload()">Reset</button>
                 </div>
-                
+                <br>
             </li>
             
             
         </ul>
     </header>
-    <div id="output">
+    <div style="clear: both; padding-top: 20px;">
+        <div id="output">
         <div class="rectangle"></div>
         <div class="rectangle"></div>
         <div class="rectangle"></div>
         <div class="rectangle"></div>
         <div class="rectangle"></div>
 
+        </div>
     </div>
-
-    
-    
 </body>
 
 <script src="js/main.js"></script>

@@ -5,21 +5,27 @@ function orderRect() {
     var elements = document.getElementsByClassName('rectangle');
     var i,r,marginLeft=-10;
 
-
     for (i = 0; i < elements.length; i++) {
-    marginLeft += (window.innerWidth-(elements.length*10))/(elements.length+1);
-    elements[i].style.marginLeft = marginLeft + 'px';
+    
+    // elements[i].style.marginLeft = marginLeft + 'px';
     r=Math.floor(Math.random() * 500) + 1;
     elements[i].style.height = r + "px";
 
+    elements[i].style.left = i*(100/elements.length) + "%";
+    elements[i].style.width = (100/elements.length) + "%";
+    //elements[i].style.height = (i+1)*(100/elements.length) + "%";
 
   }
 };
 orderRect()
 
+var range = document.querySelector('#num');
+range.addEventListener('input', EditNum())
+
 //this function allows us to change the number of columns with the value from the range input
 function EditNum(){
-    const num = parseInt(document.getElementById('val').value);
+    var num = range.value;
+
     const elements = document.getElementsByClassName('rectangle');
 
     if (elements.length<num){
@@ -41,6 +47,14 @@ function EditNum(){
     }
     orderRect()
 }
+
+
+window.addEventListener("resize",EditNum);
+
+
+
+
+
 
 //this function makes some output delay
 function delay(ms) {
@@ -75,7 +89,7 @@ async function start_bubble()  {
             
 
             
-            await delay(100); // Adjust the delay duration as needed (in milliseconds)
+            await delay(75/i); // Adjust the delay duration as needed (in milliseconds)
             elements[j].style.backgroundColor = "blueviolet";
             elements[j+1].style.backgroundColor  = "blueviolet";
 
@@ -100,12 +114,12 @@ async function start_insert(){
             t=parseInt(window.getComputedStyle(elements[lastIndex]).height, 10);
             elements[lastIndex+1].style.backgroundColor = "red";
             elements[lastIndex+1].style.height = t + 'px';
-            await delay(100);
+            await delay(75/i);
             elements[lastIndex+1].style.backgroundColor = "blueviolet";
             lastIndex--;
           }
           elements[lastIndex+1].style.height=currentElement +"px";
-          await delay(100);
+          await delay(75/i);
         }
 
 
@@ -114,14 +128,6 @@ async function start_insert(){
 
 
 function start(){
-
-    /*if (document.querySelector('input[name="sorting_alg"]:checked').value == "bubble"){
-        start_bubble();
-    }
-    else if (document.querySelector('input[name="sorting_alg"]:checked').value == "insert"){
-        start_insert();
-    }*/
-
     switch(document.querySelector('input[name="sorting_alg"]:checked').value){
         case "bubble":
             start_bubble();
