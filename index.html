@@ -20,12 +20,14 @@
                 <label for="bubble">Bubble Sort</label>
                 <input type="radio" id="insert" name="sorting_alg" value="insert">
                 <label for="insert">Insertion Sort</label>
+                <input type="radio" id="quick" name="sorting_alg" value="quick">
+                <label for="quick">Quick Sort</label>
                 <br>
                 </form>
             </li>
             <li>
                 <label for="num">Number of columns</label>
-                <input type="range" id="num" name="num" min="2" max="100" value="5" oninput="this.nextElementSibling.value = this.value;EditNum();">
+                <input type="range" id="num" name="num" min="2" max="200" value="5" oninput="this.nextElementSibling.value = this.value;EditNum();">
                 <output id="val"> 5</output>
             </li>
 
