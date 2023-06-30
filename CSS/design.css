@@ -1,84 +1,75 @@
 body, html{
-    width:100%;
+	width: 100%
 }
 * {
-    box-sizing: border-box;
-    font-family: Arial;
-    margin:0;
-    padding:0;
-    font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
+	font-family: Arial;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif
 }
 div{
-    display: block;
+	display: block
 }
-
-
 /*Stylesheet for the header and buttons*/
 header > ul{
-    list-style-type: none;
-    overflow: hidden;
-    font-size: large;
-    text-align: center;
+	list-style-type: none;
+	overflow: hidden;
+	font-size: large;
+	text-align: center
 }
-
 header{
-    box-sizing: border-box;
-    background-color: rgb(137, 137, 224);
-    width: 100%;
-    justify-content: center;
-    border: 1px solid;
-    margin-left: auto;
-    margin-right: auto;
-    position: fixed;
-    z-index: 1;
+	box-sizing: border-box;
+	background-color: rgb(137, 137, 224);
+	width: 100%;
+	justify-content: center;
+	border: 1px solid;
+	margin-left: auto;
+	margin-right: auto;
+	position: fixed;
+	z-index: 1
 }
-
 .container{
-    text-align: center;
+	text-align: center
 }
-
 .btn{
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    width: 150px;
-    height: 25px;
-    background: white;
-    position: relative;
-    z-index: 0;
-    color: black;
-    cursor: pointer;
-    font-weight: bold;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	width: 150px;
+	height: 25px;
+	background: #FFFFFF;
+	position: relative;
+	z-index: 0;
+	color: #000000;
+	cursor: pointer;
+	font-weight: bold
 }
 .btn:hover{
-    color:white;
-    background: #8555ed;
+	color: #FFFFFF;
+	background: #8555ed
 }
 .btn:active{
-    letter-spacing: 2px;
+	letter-spacing: 2px
 }
-
-
 /*Stylesheet for the visualizer*/
 #output{
-    
-    box-sizing: border-box;
-    display: grid;
-
-    width:100%;
-    height:86%;
-    position: absolute;
-    bottom:0;
-    margin-top: 100px;
-    z-index: 0;
+	box-sizing: border-box;
+	display: grid;
+	width: 100%;
+	height: 86%;
+	position: absolute;
+	bottom: 0;
+	margin-top: 100px;
+	z-index: 0
 }
 .rectangle{
-    box-sizing: border-box;
-    position: absolute;
-    width:5%;
-    height:70%;
-    background-color: blueviolet;
-    bottom:0;
-    border: solid;
-    border-color:black;
+	box-sizing: border-box;
+	position: absolute;
+	width: 5%;
+	height: 70%;
+	background-color: #8A2BE2;
+	bottom: 0;
+	border: solid;
+	border-color: #000000
 }
